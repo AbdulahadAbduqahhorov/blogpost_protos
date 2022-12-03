@@ -3,6 +3,15 @@ syntax="proto3";
 package genproto;
 option go_package="./author_service";
 
+
+service AuthorService {
+    rpc CreateAuthor(CreateAuthorRequest) returns (CreateAuthorResponse) {}
+    rpc GetAuthor (GetAuthorRequest) returns (GetAuthorResponse){}
+    rpc GetAuthorById (GetAuthorByIdRequest) returns (Author){}
+    rpc UpdateAuthor (UpdateAuthorRequest) returns (UpdateAuthorResponse){}
+    rpc DeleteAuthor (DeleteAuthorRequest) returns (DeleteAuthorResponse){}
+}
+
 message Author {
     string id=1;             
     string full_name=2;  
@@ -54,12 +63,5 @@ message DeleteAuthorResponse{
 }
 
 
-service AuthorService {
-    rpc CreateAuthor(CreateAuthorRequest) returns (CreateAuthorResponse) {}
-    rpc GetAuthor (GetAuthorRequest) returns (GetAuthorResponse){}
-    rpc GetAuthorById (GetAuthorByIdRequest) returns (Author){}
-    rpc UpdateAuthor (UpdateAuthorRequest) returns (UpdateAuthorResponse){}
-    rpc DeleteAuthor (DeleteAuthorRequest) returns (DeleteAuthorResponse){}
-}
 
 
