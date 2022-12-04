@@ -30,7 +30,7 @@ message HasAccessResponse {
     User user = 1;
     bool has_access = 2;
 }
-enum UserType {
+enum UserT {
     SUPERADMIN = 0;
     ADMIN = 1;
     USER= 2;
@@ -40,7 +40,7 @@ message User {
     string id=1;             
     string username=2; 
     string password=3;
-    UserType usre_type=4;  
+    UserT user_type=4;  
     string created_at=5; 
     string updated_at=6; 
 }
@@ -48,7 +48,7 @@ message User {
 message CreateUserRequest {
     string username=1; 
     string password=2;
-    UserType users_type=3;  
+    UserType user_type=3;  
 }
 
 message CreateUserResponse {
