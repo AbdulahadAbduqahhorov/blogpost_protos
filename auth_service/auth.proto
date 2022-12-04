@@ -48,7 +48,7 @@ message User {
 message CreateUserRequest {
     string username=1; 
     string password=2;
-    UserType user_type=3;  
+    UserT user_type=3;  
 }
 
 message CreateUserResponse {
