@@ -12,7 +12,7 @@ service AuthService {
     rpc DeleteUser (DeleteUserRequest) returns (DeleteUserResponse){}
 
     rpc Login (LoginRequest) returns (TokenResponse){}
-    rpc Login (TokenRequest) returns (HasAccessResponse){}
+    rpc HasAccess (TokenRequest) returns (HasAccessResponse){}
 
 }
 message LoginRequest{
@@ -30,12 +30,13 @@ message HasAccessResponse {
     User user = 1;
     bool has_access = 2;
 }
+enum UserType {
+    SUPERADMIN = 0;
+    ADMIN = 1;
+    USER= 2;
+  }
 message User {
-    enum UserType {
-        SUPERADMIN = 1;
-        ADMIN = 2;
-        USER= 3;
-      }
+
     string id=1;             
     string username=2; 
     string password=3;
@@ -54,14 +55,14 @@ message CreateUserResponse {
     string id = 1;
 }
 
-message GetUserRequest{
+message GetUserListRequest{
     int32 limit=1;
     int32 offset=2;
     string search=3;
 
 }
 
-message GetUserResponse{
+message GetUserListResponse{
     repeated User users=1;
 }
 message GetUserByIdRequest{
